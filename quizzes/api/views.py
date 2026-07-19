@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from quizzes.models import Quiz, Question
 from .serializers import QuizSerializer, PostQuizSerializer
+from quizzes.services.quiz_service import create_quiz
 
 
 class QuizViewSet(viewsets.ModelViewSet):
@@ -26,18 +27,9 @@ class QuizViewSet(viewsets.ModelViewSet):
             )
         
         try:
-            quiz = Quiz.objects.create(
-                user=request.user,
-                title="Quiz Title",
-                description="Quiz Description",
-                video_url=url
-            )
-            
-            Question.objects.create(
-                quiz=quiz,
-                question_title="Question 1",
-                question_options=["Option A", "Option B", "Option C", "Option D"],
-                answer="Option A"
+            quiz = create_quiz(
+                url,
+                request.user,
             )
             
             serializer = self.get_serializer(quiz)
