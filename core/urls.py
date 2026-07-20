@@ -22,6 +22,8 @@ from rest_framework.routers import DefaultRouter
 from quizzes.api.views import QuizViewSet
 from users.api.views import RegisterView, LoginView, LogoutView
 from api.views import TokenRefreshView
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = DefaultRouter()
 router.register(r'quizzes', QuizViewSet, basename='quiz')
@@ -37,3 +39,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    
