@@ -77,14 +77,21 @@ pip install -r requirements.txt
 
 # Environment Variables
 
-Create a `.env` file in the project root.
+Create your local environment file from the template:
 
-Example:
+```bash
+cp .env.template .env
+```
+
+Open the `.env` file and replace the placeholder values with your own settings:
 
 ```env
 SECRET_KEY=your_django_secret_key
+
 DEBUG=True
+
 ALLOWED_HOSTS=localhost,127.0.0.1
+
 GEMINI_API_KEY=your_gemini_api_key
 ```
 
@@ -99,8 +106,6 @@ The `GEMINI_API_KEY` is required for AI-generated quiz creation.
 Create your free API key:
 
 https://ai.google.dev/
-
----
 
 # Database Setup
 

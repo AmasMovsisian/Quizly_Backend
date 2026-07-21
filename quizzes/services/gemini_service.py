@@ -14,7 +14,7 @@ from quizzes.utils.exceptions import (
 from quizzes.utils.prompts import build_quiz_prompt
 
 
-MODEL_NAME = "gemini-flash-latest"
+MODEL_NAME = "gemini-3.1-flash-lite"
 
 
 def generate_quiz(transcript: str) -> dict:
